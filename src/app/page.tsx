@@ -36,22 +36,24 @@ export default function Home() {
         const form = e.currentTarget;
 
         const nameInput = form.elements.namedItem("name") as HTMLInputElement;
-        const phoneNumberInput = form.elements.namedItem("phoneNumber") as HTMLInputElement;
+        const studentNumberInput = form.elements.namedItem("studentNumber") as HTMLInputElement;
+        //const phoneNumberInput = form.elements.namedItem("phoneNumber") as HTMLInputElement;
 
         const randomNum = Math.floor(Math.random() * 10000);
         const paddedNum = String(randomNum).padStart(4, '0');
         const nameWithNum = `${nameInput.value}${paddedNum}`;
 
         const name = nameInput ? nameWithNum : "null";
-        const phoneNumber = phoneNumberInput ? phoneNumberInput.value : "null";
+        const studentNumber = studentNumberInput ? studentNumberInput.value : "null";
+        //const phoneNumber = phoneNumberInput ? phoneNumberInput.value : "null";
 
-        if (!phoneNumber) {
+        /*if (!phoneNumber) {
             const yes = confirm("전화번호를 입력하지 않으면 상품 수령을 할 수 없어요. 🫨\n계속 진행하시겠어요?");
             if (!yes) return;
-        }
+        }*/
 
         localStorage.setItem('name', name);
-        localStorage.setItem('phoneNumber', phoneNumber || 'null');
+        localStorage.setItem('studentNumber', studentNumber);
         localStorage.setItem('score', '0');
 
         router.push('/quiz');
@@ -90,6 +92,20 @@ export default function Home() {
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
+                  <GlassmorphicContainer className="overflow-hidden">
+                          <input
+                            placeholder="학번"
+                            className="w-full p-4 bg-transparent outline-none text-gray-800 placeholder-gray-500"
+                            /*type="tel"
+                            value={contact[0]}
+                            onChange={(e) => setContact(formatPhoneNumber(e.target.value))}
+                            name="phoneNumber"
+                            */
+                            name="studentNumber"
+                            type="text"
+                            required
+                          />
+                      </GlassmorphicContainer>
                       <GlassmorphicContainer className="overflow-hidden">
                           <input
                             placeholder="이름"
@@ -97,17 +113,6 @@ export default function Home() {
                             type="text"
                             name="name"
                             required
-                          />
-                      </GlassmorphicContainer>
-
-                      <GlassmorphicContainer className="overflow-hidden">
-                          <input
-                            placeholder="전화번호(선택)"
-                            className="w-full p-4 bg-transparent outline-none text-gray-800 placeholder-gray-500"
-                            type="tel"
-                            value={contact[0]}
-                            onChange={(e) => setContact(formatPhoneNumber(e.target.value))}
-                            name="phoneNumber"
                           />
                       </GlassmorphicContainer>
 
