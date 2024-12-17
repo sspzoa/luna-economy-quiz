@@ -17,7 +17,7 @@ export default function Result() {
     useEffect(() => {
         const fetchRank = async () => {
             const name = localStorage.getItem('name');
-            const phoneNumber = localStorage.getItem('phoneNumber');
+            const studentNumber = localStorage.getItem('studentNumber');
             const score = Number(localStorage.getItem('score'));
             setCorrectAnswers(score);
 
@@ -27,7 +27,7 @@ export default function Result() {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ name, phoneNumber, score }),
+                    body: JSON.stringify({ name, studentNumber, score }),
                 });
 
                 if (!response.ok) {
