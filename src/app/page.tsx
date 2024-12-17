@@ -53,7 +53,7 @@ export default function Home() {
         }*/
 
         localStorage.setItem('name', name);
-        localStorage.setItem('studentNumber', studentNumber || 'null');
+        localStorage.setItem('studentNumber', studentNumber);
         localStorage.setItem('score', '0');
 
         router.push('/quiz');
