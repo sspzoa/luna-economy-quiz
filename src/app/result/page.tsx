@@ -125,7 +125,7 @@ export default function Result() {
                           </button>
 
                           <button
-                            onClick={() => window.location.href = "https://www.hanyang.ac.kr/web/www/luna"}
+                            onClick={() => window.location.href = "https://luna.codes"}
                             className="w-full py-4 px-6 bg-white/30 hover:bg-white/40
                                          text-gray-800 font-semibold rounded-xl transition-all 
                                          duration-300 ease-in-out transform hover:scale-105 
